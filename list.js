@@ -16,11 +16,14 @@ export async function main(event, context) {
     }
   };
 
+  console.log("tablename: "+ params.TableName);
+
   try {
     const result = await dynamoDbLib.call("query", params);
     // Return the matching list of items in response body
     return success(result.Items);
   } catch (e) {
+    console.log(e);
     return failure({ status: false });
   }
 }

@@ -1,5 +1,6 @@
 import uuid from 'uuid';
-import AWS from 'aws-sdk';
+//import AWS from 'aws-sdk';
+import * as dynamoDbLib from "./libs/dynamodb-lib";
 import { success, failure } from './libs/response-lib';
 
 //AWS.config.update({ region: "my-region" }); set if needed
@@ -21,6 +22,7 @@ export async function main(event, context) {
     await dynamoDbLib.call('put', params);
     return success(params.Item);
   } catch (e) {
+    console.log(e);
     return failure({ status: false });
   }
 }
