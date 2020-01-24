@@ -1,3 +1,6 @@
+uuid.abc.gibberish;
+
+
 import uuid from 'uuid';
 //import AWS from 'aws-sdk';
 import * as dynamoDbLib from "./libs/dynamodb-lib";
